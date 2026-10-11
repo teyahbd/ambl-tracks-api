@@ -53,7 +53,7 @@ curl -i \
   http://127.0.0.1:3000/tracks
 ```
 
-A successful POST request returns the created track as JSON as well as a location header to identify how it can be retrieved.
+A successful POST request returns the created track as JSON as well as a location header to identify how it can be retrieved. Invalid track data or a malformed JSON object will return a "400 Bad Request"
 
 ### GET /tracks
 
@@ -63,7 +63,7 @@ Provide a valid id for a track.
 curl -i http://127.0.0.1:3000/tracks/nznx3r
 ```
 
-A successful GET request returns the requested track as JSON, or a '404 Not Found' error if the track does not exist.
+A successful GET request returns the requested track as JSON, or a "404 Not Found" error if the track does not exist.
 
 ## Project Plan
 

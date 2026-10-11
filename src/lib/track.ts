@@ -7,14 +7,14 @@ const titlesSchema = z.object({
 });
 
 const availabilitySchema = z.object({
-  from: z.string(),
-  to: z.string(),
+  from: z.iso.datetime({ offset: true }),
+  to: z.iso.datetime({ offset: true }),
   label: z.string(),
 });
 
 export const trackSchema = z.object({
   type: z.literal("track"),
-  id: z.string(),
+  id: z.string().min(1),
   urn: z.string(),
   titles: titlesSchema,
   availability: availabilitySchema,

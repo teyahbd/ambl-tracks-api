@@ -1,4 +1,6 @@
 import type { ErrorRequestHandler } from "express";
+import { ZodError } from "zod";
+
 import { isAppError } from "../errors.js";
 
 export const errorHandler: ErrorRequestHandler = (
@@ -9,6 +11,34 @@ export const errorHandler: ErrorRequestHandler = (
 ) => {
   if (response.headersSent) {
     next(error);
+    return;
+  }
+
+  if (
+    error instanceof SyntaxError &&
+    "type" in error &&
+    error.type === "entity.parse.failed"
+  ) {
+    response.status(400).json({
+      error: {
+        code: "invalid_json",
+        message: "Request body contains invalid JSON",
+      },
+    });
+    return;
+  }
+
+  if (error instanceof ZodError) {
+    response.status(400).json({
+      error: {
+        code: "validation_error",
+        message: "Request validation failed",
+        details: error.issues.map((issue) => ({
+          path: issue.path.length === 0 ? "body" : issue.path.join("."),
+          message: issue.message,
+        })),
+      },
+    });
     return;
   }
 

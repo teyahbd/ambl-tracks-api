@@ -30,6 +30,36 @@ describe("app", () => {
       expect(response.headers.location).toBe(`/tracks/${track.id}`);
       expect(response.body).toEqual(track);
     });
+
+    it("returns validation details when track object is invalid", async () => {
+      const app = createApp();
+      const track = generateTrack({ id: "" });
+
+      const response = await request(app).post("/tracks").send(track);
+
+      expect(response.status).toBe(400);
+      expect(response.body.error.code).toBe("validation_error");
+      expect(response.body.error.details).toEqual(
+        expect.arrayContaining([expect.objectContaining({ path: "id" })]),
+      );
+    });
+
+    it("returns a 400 Bad Request when JSON object is malformed", async () => {
+      const app = createApp();
+
+      const response = await request(app)
+        .post("/tracks")
+        .set("Content-Type", "application/json")
+        .send('{"type":');
+
+      expect(response.status).toBe(400);
+      expect(response.body).toEqual({
+        error: {
+          code: "invalid_json",
+          message: "Request body contains invalid JSON",
+        },
+      });
+    });
   });
 
   describe("GET /tracks", () => {
