@@ -36,6 +36,8 @@ pnpm dev
 
 to start the server listening on localhost at port `3000`. To change this port set the env var `PORT` to a different valid value.
 
+This repo uses `Husky` to run pre-commit checks. This currently includes format, lint, typechecking and test, see the [TODO.md](./TODO.md) for justification. A failure in the pre-commit hook will block the commit.
+
 ## Project Plan
 
 To see how this project was planned and implemented, including stack decisions and out-of-scope features, see the [TODO.md](./TODO.md)
