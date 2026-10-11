@@ -42,7 +42,7 @@ This repo uses `Husky` to run pre-commit checks. This currently includes format,
 
 The documentation for the API can be found below in place of more structured documentation due to time constraints.
 
-## POST /tracks
+### POST /tracks
 
 Send a valid "track" object as JSON, including the upstream ID.
 
@@ -55,6 +55,6 @@ curl -i \
 
 A successful POST request returns the created track as JSON as well as a location header to identify how it can be retrieved.
 
-## Project Plan
+## Project Plan
 
 To see how this project was planned and implemented, including stack decisions and out-of-scope features, see the [TODO.md](./TODO.md)
