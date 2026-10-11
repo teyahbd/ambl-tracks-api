@@ -55,6 +55,16 @@ curl -i \
 
 A successful POST request returns the created track as JSON as well as a location header to identify how it can be retrieved.
 
+### GET /tracks
+
+Provide a valid id for a track.
+
+```bash
+curl -i http://127.0.0.1:3000/tracks/nznx3r
+```
+
+A successful GET request returns the requested track as JSON, or a '404 Not Found' error if the track does not exist.
+
 ## Project Plan
 
 To see how this project was planned and implemented, including stack decisions and out-of-scope features, see the [TODO.md](./TODO.md)

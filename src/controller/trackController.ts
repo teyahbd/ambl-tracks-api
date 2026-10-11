@@ -15,5 +15,11 @@ export function createTrackController(trackService: TrackService) {
       .json(createdTrack);
   };
 
-  return { create };
+  const getById: RequestHandler<{ id: string }> = async (request, response) => {
+    const track = await trackService.getById(request.params.id);
+
+    response.status(200).json(track);
+  };
+
+  return { create, getById };
 }

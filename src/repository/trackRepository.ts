@@ -8,5 +8,9 @@ export function createTrackRepository(): TrackRepository {
     async insert(track) {
       tracks.set(track.id, track);
     },
+
+    async findById(id) {
+      return tracks.get(id);
+    },
   };
 }
