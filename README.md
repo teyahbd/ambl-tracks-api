@@ -26,6 +26,16 @@ This repo uses [pnpm](https://pnpm.io/), to install dependencies run at root:
 pnpm install
 ```
 
+## Running locally
+
+To run the local server, run
+
+```
+pnpm dev
+```
+
+to start the server listening on localhost at port `3000`. To change this port set the env var `PORT` to a different valid value.
+
 ## Project Plan
 
 To see how this project was planned and implemented, including stack decisions and out-of-scope features, see the [TODO.md](./TODO.md)
