@@ -10,6 +10,13 @@ export function createNotFoundError(message: string): AppError {
   });
 }
 
+export function createConflictError(message: string): AppError {
+  return Object.assign(new Error(message), {
+    statusCode: 409,
+    code: "conflict",
+  });
+}
+
 export function isAppError(error: unknown): error is AppError {
   return (
     error instanceof Error &&

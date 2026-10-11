@@ -53,7 +53,7 @@ curl -i \
   http://127.0.0.1:3000/tracks
 ```
 
-A successful POST request returns the created track as JSON as well as a location header to identify how it can be retrieved. Invalid track data or a malformed JSON object will return a "400 Bad Request"
+A successful POST request returns the created track as JSON as well as a location header to identify how it can be retrieved. Invalid track data or a malformed JSON object will return a "400 Bad Request". A duplicated track ID will return a "409 Conflict" error and leave the existing track unchanged.
 
 ### GET /tracks
 

@@ -60,6 +60,37 @@ describe("app", () => {
         },
       });
     });
+
+    it("rejects duplicate ids and does not overwrite the existing track", async () => {
+      const app = createApp();
+      const initialTrack = generateTrack();
+      const duplicatedTrack = generateTrack({
+        titles: {
+          ...initialTrack.titles,
+          primary: "Cover Artist",
+        },
+      });
+
+      const initialCreateResponse = await request(app)
+        .post("/tracks")
+        .send(initialTrack);
+
+      expect(initialCreateResponse.status).toBe(201);
+
+      const duplicatedCreateResponse = await request(app)
+        .post("/tracks")
+        .send(duplicatedTrack);
+
+      expect(duplicatedCreateResponse.status).toBe(409);
+      expect(duplicatedCreateResponse.body.error.code).toBe("conflict");
+
+      const fetchResponse = await request(app).get(
+        `/tracks/${initialTrack.id}`,
+      );
+
+      expect(fetchResponse.status).toBe(200);
+      expect(fetchResponse.body).toEqual(initialTrack);
+    });
   });
 
   describe("GET /tracks", () => {
