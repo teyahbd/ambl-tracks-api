@@ -38,6 +38,23 @@ to start the server listening on localhost at port `3000`. To change this port s
 
 This repo uses `Husky` to run pre-commit checks. This currently includes format, lint, typechecking and test, see the [TODO.md](./TODO.md) for justification. A failure in the pre-commit hook will block the commit.
 
+## API Endpoints
+
+The documentation for the API can be found below in place of more structured documentation due to time constraints.
+
+## POST /tracks
+
+Send a valid "track" object as JSON, including the upstream ID.
+
+```
+curl -i \
+  -H 'Content-Type: application/json' \
+  -d @src/test/fixtures/example-track.json \
+  http://127.0.0.1:3000/tracks
+```
+
+A successful POST request returns the created track as JSON as well as a location header to identify how it can be retrieved.
+
 ## Project Plan
 
 To see how this project was planned and implemented, including stack decisions and out-of-scope features, see the [TODO.md](./TODO.md)

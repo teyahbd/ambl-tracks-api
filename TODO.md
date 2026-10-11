@@ -26,3 +26,4 @@ A list of both nice-to-have and important production features that have delibera
 
 - Code style/formatting tools will use sensible defaults to save time, but could be made more opinionated.
 - CI will not be added at this time. Ideally, CI running on something like GitHub Actions would be added, running tests, typechecking, linting/formatting and build checks on every PR or commit to main.
+- OpenAPI documentation or Swagger are out of scope due to time, however, endpoint usage and expected responses are documented in the [README.md](./README.md)
