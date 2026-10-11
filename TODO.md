@@ -3,9 +3,10 @@
 - [x] Complete initial project and tooling setup
 - [x] Add the ability to add and fetch "track" objects by ID, holding data in memory for now. Implement using TDD and validate data.
 - [x] Ensure meaningful error handling and responses for a range of cases incl. when there are no results.
-- [ ] Verify the API runs successfully on localhost.
-- [ ] Document endpoints.
-- [ ] Briefly document use and decisions made during development.
+- [x] Verify the API runs successfully on localhost.
+- [x] Document endpoints.
+- [x] Briefly document use and decisions made during development.
+- [x] Verify a clean install, run all checks, and confirm the compiled API works.
 
 # Stack Decisions
 

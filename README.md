@@ -11,7 +11,7 @@ Note that currently this repo uses "in-memory" storage so track data will be los
 
 ## Setup
 
-If you use [Node Version Manager](https://www.nvmnode.com/) (nvm), you can install and select the projects Node version:
+If you use [Node Version Manager](https://github.com/nvm-sh/nvm) (nvm), you can install and select the projects Node version:
 
 ```
 nvm install
@@ -26,7 +26,7 @@ This repo uses [pnpm](https://pnpm.io/), to install dependencies run at root:
 pnpm install
 ```
 
-## Running locally
+## Running Locally
 
 To run the local server, run
 
@@ -36,7 +36,25 @@ pnpm dev
 
 to start the server listening on localhost at port `3000`. To change this port set the env var `PORT` to a different valid value.
 
-This repo uses `Husky` to run pre-commit checks. This currently includes format, lint, typechecking and test, see the [TODO.md](./TODO.md) for justification. A failure in the pre-commit hook will block the commit.
+This repo uses `Husky` to run pre-commit checks, which are automatically configuring on `pnpm install`. This currently includes format, lint, typechecking and test, see the [TODO.md](./TODO.md) for justification. A failure in the pre-commit hook will block the commit.
+
+## Build
+
+You can run the following to check the code
+
+```
+pnpm test
+pnpm run typecheck
+pnpm run lint
+pnpm run format:check
+```
+
+and then to compile and run the build
+
+```
+pnpm run build
+pnpm start
+```
 
 ## API Endpoints
 
@@ -53,9 +71,9 @@ curl -i \
   http://127.0.0.1:3000/tracks
 ```
 
-A successful POST request returns the created track as JSON as well as a location header to identify how it can be retrieved. Invalid track data or a malformed JSON object will return a "400 Bad Request". A duplicated track ID will return a "409 Conflict" error and leave the existing track unchanged.
+A successful POST request returns a `201 Created`, the created track as JSON and a location header to identify how it can be retrieved. Invalid track data or a malformed JSON object will return a `400 Bad Request`. A duplicated track ID will return a `409 Conflict` error and leave the existing track unchanged.
 
-### GET /tracks
+### GET /tracks/{id}
 
 Provide a valid id for a track.
 
@@ -63,7 +81,7 @@ Provide a valid id for a track.
 curl -i http://127.0.0.1:3000/tracks/nznx3r
 ```
 
-A successful GET request returns the requested track as JSON, or a "404 Not Found" error if the track does not exist.
+A successful GET request returns a `200 OK` with the requested track as JSON or a `404 Not Found` error if the track does not exist.
 
 ## Project Plan
 
