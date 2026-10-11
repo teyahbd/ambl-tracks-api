@@ -33,4 +33,12 @@ describe("Track Schema", () => {
 
     expect(result.success).toBe(false);
   });
+
+  it("rejects a track ID containing an invalid character", () => {
+    const track = generateTrack({ id: "track/a" });
+
+    const result = trackSchema.safeParse(track);
+
+    expect(result.success).toBe(false);
+  });
 });

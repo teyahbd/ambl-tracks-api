@@ -46,7 +46,7 @@ You can run the following to check the code
 pnpm test
 pnpm run typecheck
 pnpm run lint
-pnpm run format:check
+pnpm run format
 ```
 
 and then to compile and run the build

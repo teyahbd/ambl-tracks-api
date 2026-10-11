@@ -10,7 +10,7 @@ export function createTrackController(trackService: TrackService) {
     const createdTrack = await trackService.create(track);
 
     response
-      .location(`/tracks/${createdTrack.id}`)
+      .location(`/tracks/${encodeURIComponent(createdTrack.id)}`)
       .status(201)
       .json(createdTrack);
   };
