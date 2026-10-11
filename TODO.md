@@ -13,6 +13,7 @@ The stack decisions made in the project with brief reasoning:
 
 - `TypeScript` has been chosen over JavaScript due to the benefits of error detection during development and use in ensuring accurate shapes of data.
 - `pnpm` has been chosen for its efficiency and the developers familiarity with it.
+- `Express` has been chosen as a framework for simpler routing and middleware, in addition to developer familiarity.
 
 # Out of Scope
 
