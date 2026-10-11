@@ -1,0 +1,16 @@
+{
+  "name": "ambl-tracks-api",
+  "version": "1.0.0",
+  "description": "This is an AMBL REST API for Tracks.",
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "private": true,
+  "packageManager": "pnpm@10.28.2"
+}
