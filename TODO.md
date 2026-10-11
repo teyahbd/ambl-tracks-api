@@ -14,7 +14,10 @@ The stack decisions made in the project with brief reasoning:
 - `TypeScript` has been chosen over JavaScript due to the benefits of error detection during development and use in ensuring accurate shapes of data.
 - `pnpm` has been chosen for its efficiency and the developers familiarity with it.
 - `Express` has been chosen as a framework for simpler routing and middleware, in addition to developer familiarity.
+- `Prettier` and `eslint` have been chosen to ensure code quality and style simply with the existing stack.
 
 # Out of Scope
 
 A list of both nice-to-have and important production features that have deliberately not been included for the sake of time:
+
+- Code style/formatting tools will use sensible defaults to save time, but could be made more opinionated.
