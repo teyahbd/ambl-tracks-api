@@ -15,6 +15,8 @@ The stack decisions made in the project with brief reasoning:
 - `pnpm` has been chosen for its efficiency and the developers familiarity with it.
 - `Express` has been chosen as a framework for simpler routing and middleware, in addition to developer familiarity.
 - `Prettier` and `eslint` have been chosen to ensure code quality and style simply with the existing stack.
+- `Vitest` has been chosen for it's TypeScript support and developer familiarity.
+- `Supertest` has been chosen to test behaviour via the Express app without managing a separate server.
 
 # Out of Scope
 
