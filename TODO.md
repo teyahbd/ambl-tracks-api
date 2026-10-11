@@ -18,6 +18,7 @@ The stack decisions made in the project with brief reasoning:
 - `Vitest` has been chosen for it's TypeScript support and developer familiarity.
 - `Supertest` has been chosen to test behaviour via the Express app without managing a separate server.
 - This repo uses pre-commit hooks, specifically `Husky` so this can be shared between developers. This has been added for developer convenience since no other CI will be implemented at this time. Since the repo is small, this includes typechecking and test, which ideally would be moved out to other CI.
+- `Zod` has been chosen for it's compatibility with TypeScript types for consistency when validating data both during development and at runtime.
 
 # Out of Scope
 
