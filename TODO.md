@@ -31,4 +31,4 @@ A list of both nice-to-have and important production features that have delibera
 - OpenAPI documentation or Swagger are out of scope due to time, however, endpoint usage and expected responses are documented in the [README.md](./README.md)
 - To fit the original requirements, there is only in-memory storage for this API, nothing persists when the service restarts.
 - Authentication, structured logging, rate limiting and centralised monitoring are all out of scope in this small system but would likely be requirements for a production API.
-- Additional failure path testing and logging would be added with more time.
+- Additional failure path testing and logging would be added with more time. This means certain invalid requests will default to the generic 500 response rather than a more specific error code.
